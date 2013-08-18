@@ -6,15 +6,17 @@ import java.util.Map;
 
 import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
 import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
 import org.jboss.pressgang.ccms.jira.rest.entities.component.JIRAComponent;
 import org.jboss.pressgang.ccms.jira.rest.entities.issue.JIRAIssueType;
 import org.jboss.pressgang.ccms.jira.rest.entities.user.JIRAUser;
 import org.jboss.pressgang.ccms.jira.rest.entities.version.JIRAVersion;
 import org.jboss.pressgang.ccms.jira.rest.enums.JIRAAssigneeType;
 
-public class JIRAProject implements HasSelfUrl, Identifiable<Long> {
+public class JIRAProject implements HasSelfUrl, Identifiable<Long>, Named {
     private URI self;
     private Long id;
+    private String name;
     private String key;
     private String description;
     private URI url;
@@ -50,6 +52,15 @@ public class JIRAProject implements HasSelfUrl, Identifiable<Long> {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
