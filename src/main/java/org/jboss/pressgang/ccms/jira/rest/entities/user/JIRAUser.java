@@ -1,12 +1,16 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.user;
 
+import java.net.URI;
 import java.util.Map;
 
 import org.jboss.pressgang.ccms.jira.rest.collections.JIRACollection;
+import org.jboss.pressgang.ccms.jira.rest.entities.HasExpandableFields;
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
 import org.jboss.pressgang.ccms.jira.rest.entities.group.JIRAGroup;
 
-public class JIRAUser {
-    private String self;
+public class JIRAUser implements HasExpandableFields, HasSelfUrl, Named {
+    private URI self;
     private String name;
     private String displayName;
     private String emailAddress;
@@ -14,8 +18,9 @@ public class JIRAUser {
     private String expand;
     private String timeZone;
     private JIRACollection<JIRAGroup> groups;
-    private Map<String, String> avatarUrls;
+    private Map<String, URI> avatarUrls;
 
+    @Override
     public String getName() {
         return name;
     }
@@ -40,11 +45,11 @@ public class JIRAUser {
         this.active = active;
     }
 
-    public Map<String, String> getAvatarUrls() {
+    public Map<String, URI> getAvatarUrls() {
         return avatarUrls;
     }
 
-    public void setAvatarUrls(Map<String, String> avatarUrls) {
+    public void setAvatarUrls(Map<String, URI> avatarUrls) {
         this.avatarUrls = avatarUrls;
     }
 
@@ -56,6 +61,7 @@ public class JIRAUser {
         this.emailAddress = emailAddress;
     }
 
+    @Override
     public String getExpand() {
         return expand;
     }
@@ -80,11 +86,12 @@ public class JIRAUser {
         this.groups = groups;
     }
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 }

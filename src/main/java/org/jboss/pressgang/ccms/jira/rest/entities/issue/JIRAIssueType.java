@@ -1,36 +1,43 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.issue;
 
+import java.net.URI;
 import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
 import org.jboss.pressgang.ccms.jira.rest.entities.status.JIRAStatus;
 
-public class JIRAIssueType {
-    private String self;
-    private Integer id;
+public class JIRAIssueType implements HasSelfUrl, Identifiable<Long>, Named {
+    private URI self;
+    private Long id;
     private String name;
     private String description;
-    private String iconUrl;
+    private URI iconUrl;
     @JsonProperty("subtask")
     private Boolean subTask;
     private List<JIRAStatus> statuses;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -55,11 +62,11 @@ public class JIRAIssueType {
         this.subTask = subTask;
     }
 
-    public String getIconUrl() {
+    public URI getIconUrl() {
         return iconUrl;
     }
 
-    public void setIconUrl(String iconUrl) {
+    public void setIconUrl(URI iconUrl) {
         this.iconUrl = iconUrl;
     }
 

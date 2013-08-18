@@ -1,6 +1,9 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.field;
 
-public class JIRAField {
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
+
+public class JIRAField implements Identifiable<String>, Named {
     private String id;
     private String name;
     private Boolean custom;
@@ -9,6 +12,7 @@ public class JIRAField {
     private Boolean searchable;
     private JIRAFieldSchema schema;
 
+    @Override
     public String getId() {
         return id;
     }
@@ -17,6 +21,7 @@ public class JIRAField {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }

@@ -1,19 +1,24 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.issue;
 
-public class JIRAIssueLinkType {
-    private Integer id;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
+
+public class JIRAIssueLinkType implements Identifiable<Long>, Named {
+    private Long id;
     private String name;
     private String inward;
     private String outward;
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }

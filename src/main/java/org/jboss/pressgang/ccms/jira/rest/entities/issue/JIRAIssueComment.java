@@ -1,32 +1,38 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.issue;
 
+import java.net.URI;
 import java.util.Date;
 
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.visibility.JIRAVisibility;
 import org.jboss.pressgang.ccms.jira.rest.entities.user.JIRAUser;
 
-public class JIRAIssueComment {
-    private String self;
-    private Integer id;
+public class JIRAIssueComment implements HasSelfUrl, Identifiable<Long> {
+    private URI self;
+    private Long id;
     private String body;
     private JIRAUser author;
     private JIRAUser updateAuthor;
     private Date created;
     private Date updated;
-    private JIRAIssueCommentVisibility visibility;
+    private JIRAVisibility visibility;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -70,11 +76,11 @@ public class JIRAIssueComment {
         this.updated = updated;
     }
 
-    public JIRAIssueCommentVisibility getVisibility() {
+    public JIRAVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(JIRAIssueCommentVisibility visibility) {
+    public void setVisibility(JIRAVisibility visibility) {
         this.visibility = visibility;
     }
 }

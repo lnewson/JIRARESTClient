@@ -5,7 +5,7 @@ public class JIRAFieldSchema {
     private String system;
     private String items;
     private String custom;
-    private Integer customId;
+    private Long customId;
 
     public String getType() {
         return type;
@@ -39,11 +39,11 @@ public class JIRAFieldSchema {
         this.custom = custom;
     }
 
-    public Integer getCustomId() {
+    public Long getCustomId() {
         return customId;
     }
 
-    public void setCustomId(Integer customId) {
+    public void setCustomId(Long customId) {
         this.customId = customId;
     }
 }

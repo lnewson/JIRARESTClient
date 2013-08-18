@@ -1,11 +1,22 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.avatar;
 
-public class JIRAAvatar {
-    private Integer id;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+
+public class JIRAAvatar implements Identifiable<Long> {
+    private Long id;
     private String owner;
     private Boolean isSystemAvatar;
     private Boolean isSelected;
     private Boolean selected;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Boolean getSelected() {
         return selected;
@@ -29,14 +40,6 @@ public class JIRAAvatar {
 
     public void setSystemAvatar(Boolean systemAvatar) {
         isSystemAvatar = systemAvatar;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getOwner() {

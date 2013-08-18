@@ -1,4 +1,4 @@
-package org.jboss.pressgang.ccms.jira.rest.entities.status;
+package org.jboss.pressgang.ccms.jira.rest.entities.project;
 
 import java.net.URI;
 
@@ -6,12 +6,11 @@ import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
 import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
 import org.jboss.pressgang.ccms.jira.rest.entities.Named;
 
-public class JIRAStatus implements HasSelfUrl, Identifiable<Long>, Named {
+public class JIRAProjectRole implements HasSelfUrl, Named, Identifiable<Long> {
     private URI self;
     private Long id;
     private String name;
     private String description;
-    private URI iconUrl;
 
     @Override
     public URI getSelf() {
@@ -20,15 +19,6 @@ public class JIRAStatus implements HasSelfUrl, Identifiable<Long>, Named {
 
     public void setSelf(URI self) {
         this.self = self;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override
@@ -48,11 +38,12 @@ public class JIRAStatus implements HasSelfUrl, Identifiable<Long>, Named {
         this.description = description;
     }
 
-    public URI getIconUrl() {
-        return iconUrl;
+    @Override
+    public Long getId() {
+        return id;
     }
 
-    public void setIconUrl(URI iconUrl) {
-        this.iconUrl = iconUrl;
+    public void setId(Long id) {
+        this.id = id;
     }
 }

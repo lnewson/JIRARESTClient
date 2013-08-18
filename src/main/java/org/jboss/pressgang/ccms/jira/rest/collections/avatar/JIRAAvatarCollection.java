@@ -1,8 +1,10 @@
-package org.jboss.pressgang.ccms.jira.rest.entities.avatar;
+package org.jboss.pressgang.ccms.jira.rest.collections.avatar;
 
 import java.util.List;
 
-public class JIRAAvatars {
+import org.jboss.pressgang.ccms.jira.rest.entities.avatar.JIRAAvatar;
+
+public class JIRAAvatarCollection {
     private List<JIRAAvatar> system;
     private List<JIRAAvatar> custom;
 

@@ -1,14 +1,18 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.issue;
 
+import java.net.URI;
 import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.jboss.pressgang.ccms.jira.rest.collections.issue.JIRAIssueChangeLogCollection;
+import org.jboss.pressgang.ccms.jira.rest.entities.HasExpandableFields;
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
 import org.jboss.pressgang.ccms.jira.rest.entities.field.JIRAFieldSchema;
 
-public class JIRAIssue {
-    private String self;
-    private Integer id;
+public class JIRAIssue implements HasSelfUrl, Identifiable<Long>, HasExpandableFields {
+    private URI self;
+    private Long id;
     private String key;
     private String expand;
     private JIRAIssueFields fields;
@@ -17,19 +21,21 @@ public class JIRAIssue {
     @JsonProperty("changelog")
     private JIRAIssueChangeLogCollection changeLog;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -41,6 +47,7 @@ public class JIRAIssue {
         this.key = key;
     }
 
+    @Override
     public String getExpand() {
         return expand;
     }

@@ -1,28 +1,37 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.resolution;
 
-public class JIRAResolution {
-    private String self;
-    private Integer id;
+import java.net.URI;
+
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
+
+public class JIRAResolution implements HasSelfUrl, Identifiable<Long>, Named {
+    private URI self;
+    private Long id;
     private String name;
     private String description;
-    private String iconUrl;
+    private URI iconUrl;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -39,11 +48,11 @@ public class JIRAResolution {
         this.description = description;
     }
 
-    public String getIconUrl() {
+    public URI getIconUrl() {
         return iconUrl;
     }
 
-    public void setIconUrl(String iconUrl) {
+    public void setIconUrl(URI iconUrl) {
         this.iconUrl = iconUrl;
     }
 }

@@ -1,20 +1,23 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.issue;
 
+import java.net.URI;
 import java.util.List;
 
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
 import org.jboss.pressgang.ccms.jira.rest.entities.user.JIRAUser;
 
-public class JIRAIssueVotes {
-    private String self;
+public class JIRAIssueVotes implements HasSelfUrl {
+    private URI self;
     private Integer votes;
     private Boolean hasVoted;
     private List<JIRAUser> voters;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 

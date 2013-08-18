@@ -1,10 +1,15 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.version;
 
+import java.net.URI;
 import java.util.Date;
 
-public class JIRAVersion {
-    private String self;
-    private Integer id;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+
+public class JIRAVersion implements HasSelfUrl, Identifiable<Long>, Named {
+    private URI self;
+    private Long id;
     private String name;
     private Boolean archived;
     private Boolean released;
@@ -12,22 +17,25 @@ public class JIRAVersion {
     private Date releaseDate;
     private String userReleaseDate;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }

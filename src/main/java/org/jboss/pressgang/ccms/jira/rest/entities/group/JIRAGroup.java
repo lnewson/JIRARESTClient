@@ -1,22 +1,28 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.group;
 
+import java.net.URI;
+
 import org.jboss.pressgang.ccms.jira.rest.collections.JIRACollection;
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
 import org.jboss.pressgang.ccms.jira.rest.entities.user.JIRAUser;
 
-public class JIRAGroup {
-    private String self;
+public class JIRAGroup implements HasSelfUrl, Named {
+    private URI self;
     private String name;
     private String expand;
     private JIRACollection<JIRAUser> users;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
+    @Override
     public String getName() {
         return name;
     }

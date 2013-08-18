@@ -2,18 +2,20 @@ package org.jboss.pressgang.ccms.jira.rest.entities.issue;
 
 import java.util.List;
 
-public class JIRAIssueLink {
-    private Integer id;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+
+public class JIRAIssueLink implements Identifiable<Long> {
+    private Long id;
     private List<JIRAIssueLinkType> type;
     private JIRAIssue inwardIssue;
     private JIRAIssue outwardIssue;
     private JIRAIssueComment comment;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

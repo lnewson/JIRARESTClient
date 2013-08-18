@@ -1,33 +1,38 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.attachment;
 
+import java.net.URI;
 import java.util.Date;
 
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
 import org.jboss.pressgang.ccms.jira.rest.entities.user.JIRAUser;
 
-public class JIRAAttachment {
-    private String self;
-    private Integer id;
+public class JIRAAttachment implements HasSelfUrl, Identifiable<Long> {
+    private URI self;
+    private Long id;
     private String filename;
     private Date created;
-    private Long size;
+    private Integer size;
     private String mimeType;
-    private String content;
-    private String thumbnail;
+    private URI content;
+    private URI thumbnail;
     private JIRAUser author;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -47,11 +52,11 @@ public class JIRAAttachment {
         this.created = created;
     }
 
-    public Long getSize() {
+    public Integer getSize() {
         return size;
     }
 
-    public void setSize(Long size) {
+    public void setSize(Integer size) {
         this.size = size;
     }
 
@@ -63,19 +68,19 @@ public class JIRAAttachment {
         this.mimeType = mimeType;
     }
 
-    public String getContent() {
+    public URI getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(URI content) {
         this.content = content;
     }
 
-    public String getThumbnail() {
+    public URI getThumbnail() {
         return thumbnail;
     }
 
-    public void setThumbnail(String thumbnail) {
+    public void setThumbnail(URI thumbnail) {
         this.thumbnail = thumbnail;
     }
 

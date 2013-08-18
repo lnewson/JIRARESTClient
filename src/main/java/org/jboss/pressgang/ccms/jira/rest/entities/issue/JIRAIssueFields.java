@@ -7,9 +7,9 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.jboss.pressgang.ccms.jira.rest.collections.issue.JIRAIssueCommentCollection;
 import org.jboss.pressgang.ccms.jira.rest.collections.issue.JIRAIssueWorkLogCollection;
 import org.jboss.pressgang.ccms.jira.rest.entities.attachment.JIRAAttachment;
+import org.jboss.pressgang.ccms.jira.rest.entities.component.JIRAComponent;
 import org.jboss.pressgang.ccms.jira.rest.entities.priority.JIRAPriority;
 import org.jboss.pressgang.ccms.jira.rest.entities.project.JIRAProject;
-import org.jboss.pressgang.ccms.jira.rest.entities.project.JIRAProjectComponent;
 import org.jboss.pressgang.ccms.jira.rest.entities.security.JIRASecurityLevel;
 import org.jboss.pressgang.ccms.jira.rest.entities.status.JIRAStatus;
 import org.jboss.pressgang.ccms.jira.rest.entities.user.JIRAUser;
@@ -51,7 +51,7 @@ public class JIRAIssueFields {
     private Integer workRatio;
     @JsonProperty("issuelinks")
     private List<JIRAIssueLink> issueLinks;
-    private List<JIRAProjectComponent> components;
+    private List<JIRAComponent> components;
     private List<String> labels;
     private JIRAIssueCommentCollection comment;
     private JIRAIssueVotes votes;
@@ -59,6 +59,7 @@ public class JIRAIssueFields {
     private List<JIRAAttachment> attachment;
     @JsonProperty("worklog")
     private JIRAIssueWorkLogCollection workLog;
+    private List<JIRAVersion> affectedVersions;
     private List<JIRAVersion> fixVersions;
 
     public List<JIRAIssueLink> getSubTasks() {
@@ -181,11 +182,11 @@ public class JIRAIssueFields {
         this.comment = comment;
     }
 
-    public List<JIRAProjectComponent> getComponents() {
+    public List<JIRAComponent> getComponents() {
         return components;
     }
 
-    public void setComponents(List<JIRAProjectComponent> components) {
+    public void setComponents(List<JIRAComponent> components) {
         this.components = components;
     }
 
@@ -315,5 +316,13 @@ public class JIRAIssueFields {
 
     public void setFixVersions(List<JIRAVersion> fixVersions) {
         this.fixVersions = fixVersions;
+    }
+
+    public List<JIRAVersion> getAffectedVersions() {
+        return affectedVersions;
+    }
+
+    public void setAffectedVersions(List<JIRAVersion> affectedVersions) {
+        this.affectedVersions = affectedVersions;
     }
 }

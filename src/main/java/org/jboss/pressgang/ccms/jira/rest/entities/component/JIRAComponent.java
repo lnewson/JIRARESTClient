@@ -1,11 +1,16 @@
-package org.jboss.pressgang.ccms.jira.rest.entities.project;
+package org.jboss.pressgang.ccms.jira.rest.entities.component;
 
+import java.net.URI;
+
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
 import org.jboss.pressgang.ccms.jira.rest.entities.user.JIRAUser;
 import org.jboss.pressgang.ccms.jira.rest.enums.JIRAAssigneeType;
 
-public class JIRAProjectComponent {
-    private String self;
-    private Integer id;
+public class JIRAComponent implements HasSelfUrl, Identifiable<Long>, Named {
+    private URI self;
+    private Long id;
     private String name;
     private JIRAUser lead;
     private JIRAUser assignee;
@@ -14,22 +19,25 @@ public class JIRAProjectComponent {
     private JIRAAssigneeType realAssigneeType;
     private Boolean isAssigneeTypeValid;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }

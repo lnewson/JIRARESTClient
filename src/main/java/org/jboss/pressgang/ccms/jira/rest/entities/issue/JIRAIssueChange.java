@@ -1,8 +1,10 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.issue;
 
+import org.jboss.pressgang.ccms.jira.rest.enums.JIRAFieldType;
+
 public class JIRAIssueChange {
     private String field;
-    private String fieldType;
+    private JIRAFieldType fieldType;
     private String from;
     private String fromString;
     private String to;
@@ -16,11 +18,11 @@ public class JIRAIssueChange {
         this.field = field;
     }
 
-    public String getFieldType() {
+    public JIRAFieldType getFieldType() {
         return fieldType;
     }
 
-    public void setFieldType(String fieldType) {
+    public void setFieldType(JIRAFieldType fieldType) {
         this.fieldType = fieldType;
     }
 

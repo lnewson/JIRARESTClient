@@ -1,27 +1,36 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.security;
 
-public class JIRASecurityLevel {
-    private String self;
-    private Integer id;
+import java.net.URI;
+
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.Named;
+
+public class JIRASecurityLevel implements HasSelfUrl, Identifiable<Long>, Named {
+    private URI self;
+    private Long id;
     private String name;
     private String description;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }

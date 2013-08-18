@@ -1,40 +1,46 @@
 package org.jboss.pressgang.ccms.jira.rest.entities.project;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
+import org.jboss.pressgang.ccms.jira.rest.entities.HasSelfUrl;
+import org.jboss.pressgang.ccms.jira.rest.entities.Identifiable;
+import org.jboss.pressgang.ccms.jira.rest.entities.component.JIRAComponent;
 import org.jboss.pressgang.ccms.jira.rest.entities.issue.JIRAIssueType;
 import org.jboss.pressgang.ccms.jira.rest.entities.user.JIRAUser;
 import org.jboss.pressgang.ccms.jira.rest.entities.version.JIRAVersion;
 import org.jboss.pressgang.ccms.jira.rest.enums.JIRAAssigneeType;
 
-public class JIRAProject {
-    private String self;
-    private Integer id;
+public class JIRAProject implements HasSelfUrl, Identifiable<Long> {
+    private URI self;
+    private Long id;
     private String key;
     private String description;
-    private String url;
+    private URI url;
     private JIRAUser lead;
     private JIRAAssigneeType assigneeType;
-    private List<JIRAProjectComponent> components;
+    private List<JIRAComponent> components;
     private List<JIRAIssueType> issueTypes;
     private List<JIRAVersion> versions;
-    private Map<String, String> roles;
-    private Map<String, String> avatarUrls;
+    private Map<String, URI> roles;
+    private Map<String, URI> avatarUrls;
 
-    public String getSelf() {
+    @Override
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Integer getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -62,11 +68,11 @@ public class JIRAProject {
         this.lead = lead;
     }
 
-    public List<JIRAProjectComponent> getComponents() {
+    public List<JIRAComponent> getComponents() {
         return components;
     }
 
-    public void setComponents(List<JIRAProjectComponent> components) {
+    public void setComponents(List<JIRAComponent> components) {
         this.components = components;
     }
 
@@ -94,27 +100,27 @@ public class JIRAProject {
         this.assigneeType = assigneeType;
     }
 
-    public String getUrl() {
+    public URI getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(URI url) {
         this.url = url;
     }
 
-    public Map<String, String> getAvatarUrls() {
+    public Map<String, URI> getAvatarUrls() {
         return avatarUrls;
     }
 
-    public void setAvatarUrls(Map<String, String> avatarUrls) {
+    public void setAvatarUrls(Map<String, URI> avatarUrls) {
         this.avatarUrls = avatarUrls;
     }
 
-    public Map<String, String> getRoles() {
+    public Map<String, URI> getRoles() {
         return roles;
     }
 
-    public void setRoles(Map<String, String> roles) {
+    public void setRoles(Map<String, URI> roles) {
         this.roles = roles;
     }
 }

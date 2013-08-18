@@ -2,7 +2,7 @@ package org.jboss.pressgang.ccms.jira.rest.entities.attachment;
 
 public class JIRAAttachmentMeta {
     private Boolean enabled;
-    private Long uploadLimit;
+    private Integer uploadLimit;
 
     public Boolean getEnabled() {
         return enabled;
@@ -12,11 +12,11 @@ public class JIRAAttachmentMeta {
         this.enabled = enabled;
     }
 
-    public Long getUploadLimit() {
+    public Integer getUploadLimit() {
         return uploadLimit;
     }
 
-    public void setUploadLimit(Long uploadLimit) {
+    public void setUploadLimit(Integer uploadLimit) {
         this.uploadLimit = uploadLimit;
     }
 }
