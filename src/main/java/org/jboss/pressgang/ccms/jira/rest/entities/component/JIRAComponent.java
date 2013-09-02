@@ -12,6 +12,7 @@ public class JIRAComponent implements HasSelfUrl, Identifiable<Long>, Named {
     private URI self;
     private Long id;
     private String name;
+    private String description;
     private JIRAUser lead;
     private JIRAUser assignee;
     private JIRAUser realAssignee;
@@ -92,5 +93,13 @@ public class JIRAComponent implements HasSelfUrl, Identifiable<Long>, Named {
 
     public void setRealAssigneeType(JIRAAssigneeType realAssigneeType) {
         this.realAssigneeType = realAssigneeType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
