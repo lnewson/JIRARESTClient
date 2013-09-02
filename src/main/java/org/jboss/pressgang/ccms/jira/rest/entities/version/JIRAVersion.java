@@ -11,6 +11,7 @@ public class JIRAVersion implements HasSelfUrl, Identifiable<Long>, Named {
     private URI self;
     private Long id;
     private String name;
+    private String description;
     private Boolean archived;
     private Boolean released;
     private Boolean overdue;
@@ -82,5 +83,13 @@ public class JIRAVersion implements HasSelfUrl, Identifiable<Long>, Named {
 
     public void setOverdue(Boolean overdue) {
         this.overdue = overdue;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
