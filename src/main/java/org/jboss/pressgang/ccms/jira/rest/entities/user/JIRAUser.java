@@ -11,6 +11,7 @@ import org.jboss.pressgang.ccms.jira.rest.entities.group.JIRAGroup;
 
 public class JIRAUser implements HasExpandableFields, HasSelfUrl, Named {
     private URI self;
+    private String key;
     private String name;
     private String displayName;
     private String emailAddress;
@@ -19,6 +20,14 @@ public class JIRAUser implements HasExpandableFields, HasSelfUrl, Named {
     private String timeZone;
     private JIRACollection<JIRAGroup> groups;
     private Map<String, URI> avatarUrls;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     @Override
     public String getName() {
