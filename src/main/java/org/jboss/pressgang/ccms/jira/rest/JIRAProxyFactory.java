@@ -31,13 +31,12 @@ public class JIRAProxyFactory {
     private final ClientRequestFactory requestFactory;
 
     private JIRAProxyFactory(final String url) {
-        final URI uri = ProxyFactory.createUri(fixUrl(url));
-        requestFactory = new ClientRequestFactory(uri);
+        this(url, null);
     }
 
     private JIRAProxyFactory(final String url, final ClientExecutor executor) {
         final URI uri = ProxyFactory.createUri(fixUrl(url));
-        requestFactory = new ClientRequestFactory(executor, uri);
+        requestFactory = new ClientRequestFactory(executor, providerFactory, uri);
     }
 
     public static JIRAProxyFactory create(final String url) {
