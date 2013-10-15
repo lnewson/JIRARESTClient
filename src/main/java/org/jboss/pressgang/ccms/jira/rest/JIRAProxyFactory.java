@@ -60,4 +60,8 @@ public class JIRAProxyFactory {
     public JIRARESTInterface getRESTClient() {
         return requestFactory.createProxy(JIRARESTInterface.class);
     }
+
+    public ResteasyProviderFactory getResteasyProviderFactory() {
+        return providerFactory;
+    }
 }
