@@ -37,6 +37,7 @@ public class JIRAProxyFactory {
     private JIRAProxyFactory(final String url, final ClientExecutor executor) {
         final URI uri = ProxyFactory.createUri(fixUrl(url));
         requestFactory = new ClientRequestFactory(executor, providerFactory, uri);
+        requestFactory.setFollowRedirects(true);
     }
 
     public static JIRAProxyFactory create(final String url) {
