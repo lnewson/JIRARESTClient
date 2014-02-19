@@ -11,11 +11,11 @@
     <parent>
         <groupId>org.jboss.pressgang</groupId>
         <artifactId>pressgang-parent</artifactId>
-        <version>1.5</version>
+        <version>1.6</version>
     </parent>
 
     <properties>
-        <resteasy.version>2.3.4.Final</resteasy.version>
+        <resteasy.version>2.3.5.Final</resteasy.version>
     </properties>
 
     <dependencies>
